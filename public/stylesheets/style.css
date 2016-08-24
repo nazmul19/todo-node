@@ -6,3 +6,11 @@ body {
 a {
   color: #00B7FF;
 }
+
+.text-line-through {
+	text-decoration: line-through;
+}
+
+.todo-anchor:hover {
+	text-decoration: none;
+}
