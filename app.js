@@ -5,9 +5,16 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+var mongoose = require('mongoose');
+require('./models/Todos');
+
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
+
+
+mongoose.connect('mongodb://localhost/todoApp');
+console.log('mongoose connect is working');
 var app = express();
 
 // view engine setup
@@ -56,5 +63,7 @@ app.use(function(err, req, res, next) {
   });
 });
 
-
+var port = process.env.PORT || 3000; 
+app.listen(port); 
+console.log('Magic happens on port ' + port);
 module.exports = app;
